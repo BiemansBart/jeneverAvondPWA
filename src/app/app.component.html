@@ -5,7 +5,6 @@
   </mat-toolbar>
 </div>
 
-<p>Gelieve met het internet te verbinden!</p>
 <div *ngIf="jeneverList">
   <app-jenever *ngFor="let x of jeneverList; index as i;" [jenever]="x"  ></app-jenever>
 </div>
