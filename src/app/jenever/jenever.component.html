@@ -1,0 +1,30 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
+<div class="card">
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          rating : {{jenever.rating}}
+        </mat-panel-title>
+        <mat-panel-description>
+          naam : {{jenever.naam}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="description-grid">
+        <div class="beschrijving">{{jenever.beschrijving}}</div>
+        <div class="sterren-flexbox">
+          <app-rating [jeneverNaam]="jenever.naam" (ratingEvent)="updateRating($event)"></app-rating>
+          <mat-checkbox >Checked</mat-checkbox>
+        </div>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+  <!--<button (click)="haalCactusJeneverop()"></button> -->
+
+</div>
