@@ -15,6 +15,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {StorageServiceModule} from 'angular-webstorage-service';
 import { RatingComponent } from './rating/rating.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 const appRoutes: Routes = [
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
     ),
     AppRoutingModule
   ],
-  providers: [AngularFireDatabase],
+  providers: [AngularFireDatabase,HashLocationStrategy,LocationStrategy],
   bootstrap: [AppComponent],
   exports: [MatMenuModule, MatExpansionModule, MatButtonModule, MatToolbarModule, MatCheckboxModule]
 })
