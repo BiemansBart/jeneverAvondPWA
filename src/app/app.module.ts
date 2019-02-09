@@ -43,7 +43,7 @@ const appRoutes: Routes = [
     ),
     AppRoutingModule
   ],
-  providers: [AngularFireDatabase,HashLocationStrategy,LocationStrategy],
+  providers: [AngularFireDatabase, HashLocationStrategy],
   bootstrap: [AppComponent],
   exports: [MatMenuModule, MatExpansionModule, MatButtonModule, MatToolbarModule, MatCheckboxModule]
 })
