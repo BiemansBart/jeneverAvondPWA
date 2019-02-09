@@ -1,20 +1,29 @@
 @import "../../palette.scss";
+
 $primary: map-get($my-theme, primary);
 
-.title{
+.title {
   margin: auto
 }
-.description-grid{
+
+.description-grid {
   grid-template-rows: 1fr 1fr
 }
-.beschrijving{
+
+.beschrijving {
   grid-row-start: 1
 }
-.sterren-flexbox{
-grid-row-start: 2
+
+.sterren-flexbox {
+  grid-row-start: 2;
+  display: flex;
+  justify-content: space-between;
 }
-.card{
-  margin-top:5px;
+
+
+.card {
+  margin-top: 5px;
   margin-bottom: 5px;
   box-shadow: 2px 2px lightgrey;
+
 }

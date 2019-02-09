@@ -5,7 +5,7 @@
 
 <div class="card">
   <mat-accordion>
-    <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel [expanded]="false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           rating : {{jenever.rating}}
@@ -18,7 +18,7 @@
         <div class="beschrijving">{{jenever.beschrijving}}</div>
         <div class="sterren-flexbox">
           <app-rating [jeneverNaam]="jenever.naam" (ratingEvent)="updateRating($event)"></app-rating>
-          <mat-checkbox >Checked</mat-checkbox>
+          <mat-checkbox (change)="VeranderGedronken()" [checked]="gedronken">Al gedronken</mat-checkbox>
         </div>
       </div>
     </mat-expansion-panel>

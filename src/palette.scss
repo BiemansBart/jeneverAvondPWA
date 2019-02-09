@@ -5,7 +5,7 @@
 @include mat-core();
 
 $primary-color: mat-palette($mat-green);
-$accent-color: mat-palette($mat-teal,A200, A100, A400);
+$accent-color: mat-palette($mat-blue,A200, A100, A400);
 $warn-color:  mat-palette($mat-red);
 
 $my-theme: mat-light-theme($primary-color,$accent-color,$warn-color);

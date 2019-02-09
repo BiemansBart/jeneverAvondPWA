@@ -12,11 +12,11 @@ import {LOCAL_STORAGE, StorageService} from 'angular-webstorage-service';
 export class JeneverComponent implements OnInit {
   @Input()
   jenever: Jenever;
+  gedronken = false;
   constructor(private service: JeneverServiceService, @Inject(LOCAL_STORAGE) private localStorage: StorageService) { }
 
   ngOnInit() {
-    console.log('component is aangemaakt');
-    console.log('naam :' + this.jenever.naam);
+   this.gedronken = this.localStorage.get(this.jenever.naam + ' gedronken');
   }
 
   updateRating(gebruikersRating: number) {
@@ -31,6 +31,16 @@ export class JeneverComponent implements OnInit {
     console.log(this.jenever.rating);
     this.jenever.aantalStemmen++;
     this.service.updateJenever(this.jenever);
+  }
+
+  VeranderGedronken() {
+    if (this.localStorage.get(this.jenever.naam + ' gedronken') === null) {
+      this.localStorage.set(this.jenever.naam + ' gedronken', false);
+      console.log('aangemaakt');
+    } else {
+      this.localStorage.set(this.jenever.naam + ' gedronken', !this.localStorage.get(this.jenever.naam + ' gedronken'));
+      console.log('verandert');
+    }
   }
 
 }
