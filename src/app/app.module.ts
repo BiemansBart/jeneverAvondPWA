@@ -16,6 +16,7 @@ import {StorageServiceModule} from 'angular-webstorage-service';
 import { RatingComponent } from './rating/rating.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 const appRoutes: Routes = [
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AngularFireDatabase, HashLocationStrategy],
   bootstrap: [AppComponent],
