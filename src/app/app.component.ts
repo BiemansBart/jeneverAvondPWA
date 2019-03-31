@@ -10,11 +10,18 @@ import {Jenever} from '../Jenever';
 export class AppComponent implements OnInit {
   title = 'jeneverAvondPWA';
   jeneverList: Jenever[];
-
+  prompt: any;
 
 
   constructor(private service: JeneverServiceService) {
-
+    window.addEventListener('beforeinstallprompt', function (e) {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      this.prompt = e;
+      console.log('prompt opgevangen : ');
+      console.log(this.prompt);
+    });
   }
 
   ngOnInit(): void {
