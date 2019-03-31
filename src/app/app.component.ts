@@ -34,4 +34,7 @@ export class AppComponent implements OnInit {
   }
 
 
+  installPwa() {
+    this.prompt.promptEvent.prompt();
+  }
 }
