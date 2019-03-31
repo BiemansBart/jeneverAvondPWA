@@ -8,17 +8,12 @@ import {AngularFireDatabase} from '@angular/fire/database';
   providedIn: 'root'
 })
 export class JeneverServiceService {
-  promptEvent: any;
+
 
   constructor(private db: AngularFireDatabase) {
-    window.addEventListener('beforeinstallprompt', event => {
-      this.promptEvent = event;
-    });
   }
 
-  public getInstallEvent() {
-    return this.promptEvent;
-  }
+
 
   public getJenevers(): Observable<any[]> {
     return this.db.list('jenevers').valueChanges();

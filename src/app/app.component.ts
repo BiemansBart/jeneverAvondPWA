@@ -10,7 +10,7 @@ import {Jenever} from '../Jenever';
 export class AppComponent implements OnInit {
   title = 'jeneverAvondPWA';
   jeneverList: Jenever[];
-  Pwa;
+
 
 
   constructor(private service: JeneverServiceService) {
@@ -23,11 +23,8 @@ export class AppComponent implements OnInit {
         console.log(this.jeneverList[0].naam);
       },
       error1 => console.log(error1));
-    this.Pwa = this.service.getInstallEvent();
     console.log('Pwa is terug gegeven');
   }
 
-  installPwa() {
-    this.Pwa.promptEvent.prompt();
-  }
+
 }
