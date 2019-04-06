@@ -1,0 +1,6 @@
+<div class="flexbox-icons">
+<mat-icon>subject</mat-icon>
+</div>
+<div *ngIf="jeneverList">
+  <app-jenever *ngFor="let x of jeneverList; index as i;" [jenever]="x"  ></app-jenever>
+</div>

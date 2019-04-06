@@ -1,12 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <button *ngIf="prompt" (click)="installPwa()"></button>
 <div style="text-align:center">
-  <mat-toolbar color="primary" class="toolbar">
-    <div class="title"> Jeneveravond</div>
+  <mat-toolbar color="primary" class="mat-elevation-z4">
+    <div class="title">Jeneveravond 2019</div>
   </mat-toolbar>
 </div>
-
-<div *ngIf="jeneverList">
-  <app-jenever *ngFor="let x of jeneverList; index as i;" [jenever]="x"  ></app-jenever>
+<div class="page-body">
+  <router-outlet></router-outlet>
 </div>
-

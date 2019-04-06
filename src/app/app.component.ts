@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
         console.log(this.jeneverList[0].naam);
       },
       error1 => console.log(error1));
-    console.log('Pwa is terug gegeven');
   }
 
 

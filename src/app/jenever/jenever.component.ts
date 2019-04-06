@@ -16,6 +16,7 @@ export class JeneverComponent implements OnInit {
   constructor(private service: JeneverServiceService, @Inject(LOCAL_STORAGE) private localStorage: StorageService) { }
 
   ngOnInit() {
+    console.log('jeneverComponent gemaakt');
    this.gedronken = this.localStorage.get(this.jenever.naam + ' gedronken');
   }
 

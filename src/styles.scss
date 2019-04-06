@@ -4,8 +4,11 @@
   margin: 0;
 }
 @import "palette";
-
+html{
+  background-color: #A1BBE3;
+}
 @include mat-core()
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @include angular-material-theme($my-theme)
 
 
