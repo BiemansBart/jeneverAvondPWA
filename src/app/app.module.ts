@@ -51,7 +51,7 @@ const appRoutes: Routes = [
       appRoutes
     ),
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: true})
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [AngularFireDatabase, HashLocationStrategy],
   bootstrap: [AppComponent],
