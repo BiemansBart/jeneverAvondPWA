@@ -6,7 +6,7 @@
   </mat-toolbar>
 </div>
 <div class="page-body">
-  <main [@routeAnimations]="prepareRoute(outlet)" class="content">
+  <main [@myAnimation]="outlet.isActivated ? outlet.activatedRoute : ''" class="content">
     <router-outlet #outlet="outlet"></router-outlet>
   </main>
 </div>

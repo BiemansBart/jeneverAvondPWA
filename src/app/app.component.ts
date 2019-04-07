@@ -2,14 +2,32 @@ import {Component, OnInit} from '@angular/core';
 import {JeneverServiceService} from './service/jenever-service.service';
 import {Jenever} from '../Jenever';
 import {RouterOutlet} from '@angular/router';
-import {slider} from './route-animations';
+import {animate, group, query, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    slider
+    trigger('myAnimation', [ transition('* <=> *', [query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 60,
+        left: 0,
+        width: '100%'
+      })
+    ], null),
+      query(':enter', [
+        style({left: '-100%'})
+      ]),
+      group([
+        query(':leave', [
+          animate('600ms ease', style({left: '100%'}))
+        ], null),
+        query(':enter', [
+          animate('600ms ease', style({left: '0%'}))
+        ])
+      ])])])
   ]
 })
 export class AppComponent implements OnInit {
