@@ -24,7 +24,7 @@ import {MatIconModule} from '@angular/material';
 
 const appRoutes: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'jeneverlist', component: JeneverlistComponent}
+  {path: 'jeneverlist', component: JeneverlistComponent, data: {animation: 'isLeft'}}
 ];
 
 @NgModule({

@@ -1,11 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {JeneverServiceService} from './service/jenever-service.service';
 import {Jenever} from '../Jenever';
+import {slider} from './route-animations';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    slider
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'jeneverAvondPWA';
@@ -35,5 +40,9 @@ export class AppComponent implements OnInit {
 
   installPwa() {
     this.prompt.promptEvent.prompt();
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 }
