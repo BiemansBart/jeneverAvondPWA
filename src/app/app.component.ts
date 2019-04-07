@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {JeneverServiceService} from './service/jenever-service.service';
 import {Jenever} from '../Jenever';
-import {slider} from './route-animations';
 import {RouterOutlet} from '@angular/router';
+import {slider} from './route-animations';
 
 @Component({
   selector: 'app-root',
