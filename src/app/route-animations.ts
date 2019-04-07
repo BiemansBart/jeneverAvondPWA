@@ -30,3 +30,6 @@ export const slider =
   trigger('routeAnimations', [
     transition('* <=> *', slideTo('left'))
   ]);
+
+
+
