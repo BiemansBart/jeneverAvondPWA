@@ -1,7 +1,7 @@
 import {animate, group, query, style, transition, trigger} from '@angular/animations';
 
 
-function slideTo(direction) {
+export function slideTo(direction) {
   const optional = {optional: true};
   return [
     query(':enter, :leave', [
