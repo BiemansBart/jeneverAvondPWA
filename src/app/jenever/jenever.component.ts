@@ -36,7 +36,7 @@ export class JeneverComponent implements OnInit {
 
   VeranderGedronken() {
     if (this.localStorage.get(this.jenever.naam + ' gedronken') === null) {
-      this.localStorage.set(this.jenever.naam + ' gedronken', false);
+      this.localStorage.set(this.jenever.naam + ' gedronken', true);
       console.log('aangemaakt');
     } else {
       this.localStorage.set(this.jenever.naam + ' gedronken', !this.localStorage.get(this.jenever.naam + ' gedronken'));

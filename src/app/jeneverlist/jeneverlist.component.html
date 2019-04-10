@@ -1,6 +1,11 @@
 <div class="flexbox-icons">
-<mat-icon>subject</mat-icon>
+  <button (click)="openFilter()"><img class="filter-icon" src="../../assets/baseline-subject-24px.svg"></button>
+</div>
+<div [className]="filterMenuActivated ? 'invisbile' : 'filter-menu'">
+  <mat-checkbox (change)="filterGedronken($event)" >gedronken</mat-checkbox>
+  <div class="filter-rating"><img class="filter-image" *ngFor="let ster of src; index as i;" [src]="ster"
+                                  (click)="changeSter(i)"></div>
 </div>
 <div *ngIf="jeneverList">
-  <app-jenever *ngFor="let x of jeneverList; index as i;" [jenever]="x"  ></app-jenever>
+  <app-jenever *ngFor="let x of jeneverList; index as i;" [jenever]="x"></app-jenever>
 </div>

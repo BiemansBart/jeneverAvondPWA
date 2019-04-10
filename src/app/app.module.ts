@@ -19,7 +19,7 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import { JeneverlistComponent } from './jeneverlist/jeneverlist.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import {MatIconModule} from '@angular/material';
+import {MatIconModule, MatSelectModule} from '@angular/material';
 
 
 const appRoutes: Routes = [
@@ -51,7 +51,8 @@ const appRoutes: Routes = [
       appRoutes
     ),
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    MatSelectModule
   ],
   providers: [AngularFireDatabase, HashLocationStrategy],
   bootstrap: [AppComponent],

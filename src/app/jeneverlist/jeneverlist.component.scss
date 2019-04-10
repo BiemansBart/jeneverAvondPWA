@@ -3,10 +3,25 @@
 }
 .flexbox-icons{
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   background-color: #A1BBE3;
 }
+.label-rating{
+  background: #A1BBE3;
+
+}
 .page-body{
+  height: 100%;
+}
+.filter-icon{
+  background: #A1BBE3;
+  width: 30px;
+  height: 30px;
+}
+button{
+  border: none;
+  background-color: #A1BBE3;
+  font-size: 40px;
   height: 100%;
 }
 
@@ -15,4 +30,33 @@ mat-icon{
   font-size: 40px;
   height: 100%;
   width: 100%;
+}
+mat-checkbox{
+  background: #A1BBE3;
+  margin-right: 5%;
+}
+.filter-menu{
+  background: #A1BBE3;
+  display: flex;
+  justify-content: space-around;
+}
+mat-select{
+  background: none;
+  border: 1px solid gray;
+  width: 30%;
+}
+mat-label{
+  font-family: Roboto, serif;
+  margin-left: 2%;
+  background: #A1BBE3;
+}
+.filter-rating{
+  background: #A1BBE3;
+  justify-self: end;
+}
+.filter-image{
+  background: #A1BBE3;
+}
+.invisbile{
+  display: none;
 }
