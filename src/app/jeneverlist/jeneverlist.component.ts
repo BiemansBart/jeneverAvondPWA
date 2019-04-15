@@ -12,14 +12,14 @@ export class JeneverlistComponent implements OnInit {
   ratings = [1, 2, 3, 4, 5];
   src = [];
   gebruikersRating: number;
-  filterMenuActivated;
+  filterMenuActivated = false;
   checked = false;
 
   constructor(private jeneverService: JeneverServiceService, private sanitazer: DomSanitizer) {
   }
 
   ngOnInit() {
-    this.filterMenuActivated = false;
+    this.filterMenuActivated = true;
     this.jeneverService.getJenevers().subscribe(x => {
       this.jeneverList = x;
     });
@@ -71,9 +71,11 @@ export class JeneverlistComponent implements OnInit {
             list.push(jenever);
           }
         }
+        this.jeneverList = [];
         this.jeneverList = list;
       });
     } else {
+      this.jeneverList = [];
       this.jeneverList = this.jeneverService.getJenevers().subscribe(x => {
         this.jeneverList = x;
       });

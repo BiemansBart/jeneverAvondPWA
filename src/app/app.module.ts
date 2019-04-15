@@ -19,11 +19,13 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import { JeneverlistComponent } from './jeneverlist/jeneverlist.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import {MatIconModule, MatSelectModule} from '@angular/material';
+import {MatCardModule, MatDatepickerModule, MatIconModule, MatSelectModule} from '@angular/material';
+import { LineupComponent } from './lineup/lineup.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: HomepageComponent},
+  {path: 'lineup', component: LineupComponent},
   {path: 'jeneverlist', component: JeneverlistComponent, data: {animation: 'isLeft'}}
 ];
 
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     JeneverComponent,
     RatingComponent,
     JeneverlistComponent,
-    HomepageComponent
+    HomepageComponent,
+    LineupComponent
 
   ],
   imports: [
@@ -52,7 +55,9 @@ const appRoutes: Routes = [
     ),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    MatDatepickerModule
   ],
   providers: [AngularFireDatabase, HashLocationStrategy],
   bootstrap: [AppComponent],

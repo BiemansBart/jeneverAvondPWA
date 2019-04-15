@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {JeneverServiceService} from './service/jenever-service.service';
 import {Jenever} from '../Jenever';
-import {RouterOutlet} from '@angular/router';
+import {Route, Router, RouterOutlet} from '@angular/router';
 import {animate, group, query, style, transition, trigger} from '@angular/animations';
 
 @Component({
@@ -9,7 +9,7 @@ import {animate, group, query, style, transition, trigger} from '@angular/animat
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [
-    trigger('myAnimation', [ transition('* <=> *', [query(':enter, :leave', [
+    trigger('myAnimation', [transition('* <=> *', [query(':enter, :leave', [
       style({
         position: 'absolute',
         top: 60,
@@ -36,15 +36,8 @@ export class AppComponent implements OnInit {
   prompt: any;
 
 
-  constructor(private service: JeneverServiceService) {
-    window.addEventListener('beforeinstallprompt', function (e) {
-      // Prevent Chrome 67 and earlier from automatically showing the prompt
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      this.prompt = e;
-      console.log('prompt opgevangen : ');
-      console.log(this.prompt);
-    });
+  constructor(private service: JeneverServiceService, private router: Router) {
+
   }
 
   ngOnInit(): void {
@@ -62,5 +55,12 @@ export class AppComponent implements OnInit {
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
+
+  back() {
+    console.log(this.router.url);
+    if (this.router.url === '/lineup' || this.router.url === '/jeneverlist') {
+      this.router.navigate(['']);
+    }
   }
 }
