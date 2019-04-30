@@ -10,13 +10,27 @@
     <div class="filter-rating"><img class="filter-image" *ngFor="let ster of src; index as i;" [src]="ster"
                                     (click)="changeSter(i)"></div>
   </div>
+</div>
+<div class="flexbox-filter-merk-type">
   <div [className]="filterMenuActivated ? 'invisbile' : 'filter-menu-merk-type'">
-    <mat-label>Merk</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let food of foods" [value]="food.value">
-        {{food.viewValue}}
-      </mat-option>
-    </mat-select>
+    <mat-form-field>
+      <mat-label>Merk</mat-label>
+      <mat-select (selectionChange)="filterMerk($event.value)">
+        <mat-option *ngFor="let merk of merken" [value]="merk">
+          {{merk}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div [className]="filterMenuActivated ? 'invisbile' : 'filter-menu-merk-type'">
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select (selectionChange)="filterType($event.value)">
+        <mat-option *ngFor="let type of types" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 </div>
 <div class="jenevers" *ngIf="jeneverList">

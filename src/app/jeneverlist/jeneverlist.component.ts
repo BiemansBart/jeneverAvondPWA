@@ -15,8 +15,8 @@ export class JeneverlistComponent implements OnInit {
   filterMenuActivated = false;
   checked = false;
   nietGedronken = false;
-  merken = [];
-  types = [];
+  merken = ['Massy', 'Filliers', 'Berentzen', 'Peterman', 'Smeets', 'Korhaan', 'Bols', 'allemaal'];
+  types = ['fruit', 'creme', 'varia', 'kruidig', 'allemaal'];
 
   constructor(private jeneverService: JeneverServiceService, private sanitazer: DomSanitizer) {
   }
@@ -106,5 +106,37 @@ export class JeneverlistComponent implements OnInit {
         this.jeneverList = x;
       });
     }
+  }
+
+  filterType(value: any) {
+    const list = [];
+    this.jeneverList = this.jeneverService.getJenevers().subscribe(x => {
+      this.jeneverList = x;
+      if (!(value === 'allemaal')) {
+        for (const jenever of this.jeneverList) {
+          if (jenever.type === value) {
+            list.push(jenever);
+          }
+        }
+        this.jeneverList = [];
+        this.jeneverList = list;
+      }
+    });
+  }
+
+  filterMerk(value: any) {
+    const list = [];
+    this.jeneverList = this.jeneverService.getJenevers().subscribe(x => {
+      this.jeneverList = x;
+      if (!(value === 'allemaal')) {
+        for (const jenever of this.jeneverList) {
+          if (jenever.merk === value) {
+            list.push(jenever);
+          }
+        }
+        this.jeneverList = [];
+        this.jeneverList = list;
+      }
+    });
   }
 }
