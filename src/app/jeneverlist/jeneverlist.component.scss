@@ -36,6 +36,22 @@ mat-checkbox{
   margin-right: 5%;
 }
 .filter-menu{
+  display: flex;
+  background: #A1BBE3;
+  justify-content: center;
+}
+.filter-menu-checkbox{
+  width: 45%;
+  background: #A1BBE3;
+  display: flex;
+  flex-direction: column;
+
+}
+.jenevers{
+  background: #A1BBE3;
+}
+.filter-menu-rating{
+  width: 45%;
   background: #A1BBE3;
   display: flex;
   justify-content: space-around;

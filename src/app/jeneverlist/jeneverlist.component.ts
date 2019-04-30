@@ -14,6 +14,7 @@ export class JeneverlistComponent implements OnInit {
   gebruikersRating: number;
   filterMenuActivated = false;
   checked = false;
+  nietGedronken = false;
 
   constructor(private jeneverService: JeneverServiceService, private sanitazer: DomSanitizer) {
   }
@@ -68,6 +69,29 @@ export class JeneverlistComponent implements OnInit {
         for (const jenever of this.jeneverList) {
           console.log(localStorage.getItem(jenever.naam + 'gedronken'));
           if (localStorage.getItem(jenever.naam + ' gedronken') === 'true') {
+            list.push(jenever);
+          }
+        }
+        this.jeneverList = [];
+        this.jeneverList = list;
+      });
+    } else {
+      this.jeneverList = [];
+      this.jeneverList = this.jeneverService.getJenevers().subscribe(x => {
+        this.jeneverList = x;
+      });
+    }
+  }
+
+  filterNietGedronken($event: any) {
+    if ($event.checked) {
+      this.nietGedronken = !this.nietGedronken;
+      const list = [];
+      this.jeneverList = this.jeneverService.getJenevers().subscribe(x => {
+        this.jeneverList = x;
+        for (const jenever of this.jeneverList) {
+          console.log(localStorage.getItem(jenever.naam + 'gedronken'));
+          if (localStorage.getItem(jenever.naam + ' gedronken') === null) {
             list.push(jenever);
           }
         }
