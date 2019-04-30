@@ -15,6 +15,8 @@ export class JeneverlistComponent implements OnInit {
   filterMenuActivated = false;
   checked = false;
   nietGedronken = false;
+  merken = [];
+  types = [];
 
   constructor(private jeneverService: JeneverServiceService, private sanitazer: DomSanitizer) {
   }

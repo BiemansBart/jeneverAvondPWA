@@ -17,16 +17,18 @@ import {RatingComponent} from './rating/rating.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {ServiceWorkerModule} from '@angular/service-worker';
-import { JeneverlistComponent } from './jeneverlist/jeneverlist.component';
-import { HomepageComponent } from './homepage/homepage.component';
+import {JeneverlistComponent} from './jeneverlist/jeneverlist.component';
+import {HomepageComponent} from './homepage/homepage.component';
 import {MatCardModule, MatDatepickerModule, MatIconModule, MatSelectModule} from '@angular/material';
-import { LineupComponent } from './lineup/lineup.component';
+import {LineupComponent} from './lineup/lineup.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'lineup', component: LineupComponent},
-  {path: 'jeneverlist', component: JeneverlistComponent, data: {animation: 'isLeft'}}
+  {path: 'jeneverlist', component: JeneverlistComponent, data: {animation: 'isLeft'}},
+  {path: '**', component: HomepageComponent}
+
 ];
 
 @NgModule({
@@ -36,7 +38,7 @@ const appRoutes: Routes = [
     RatingComponent,
     JeneverlistComponent,
     HomepageComponent,
-    LineupComponent
+    LineupComponent,
 
   ],
   imports: [
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     RouterModule.forRoot(
-      appRoutes
+      appRoutes,
+      {useHash: true}
     ),
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),

@@ -10,6 +10,14 @@
     <div class="filter-rating"><img class="filter-image" *ngFor="let ster of src; index as i;" [src]="ster"
                                     (click)="changeSter(i)"></div>
   </div>
+  <div [className]="filterMenuActivated ? 'invisbile' : 'filter-menu-merk-type'">
+    <mat-label>Merk</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </div>
 </div>
 <div class="jenevers" *ngIf="jeneverList">
   <app-jenever *ngFor="let x of jeneverList; index as i;" [jenever]="x"></app-jenever>
