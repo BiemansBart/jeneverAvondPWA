@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
   prompt: any;
 
 
-  constructor(private service: JeneverServiceService, private router: Router) {
+  constructor(private service: JeneverServiceService, public router: Router) {
 
   }
 
