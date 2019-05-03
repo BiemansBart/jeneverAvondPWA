@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.router.url);
     this.router.navigate(['']);
     this.service.getJenevers().subscribe(x => {
         this.jeneverList = x as Jenever[];

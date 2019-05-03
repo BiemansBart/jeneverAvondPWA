@@ -29,7 +29,7 @@ export class JeneverComponent implements OnInit {
       this.jenever.rating = Math.round(rating * 10) / 10;
     }
 
-    console.log(this.jenever.rating);
+    console.log('ik ga een jenever updaten met de volgende ID: ' + this.jenever.id);
     this.jenever.aantalStemmen++;
     this.service.updateJenever(this.jenever);
   }
@@ -37,10 +37,8 @@ export class JeneverComponent implements OnInit {
   VeranderGedronken() {
     if (this.localStorage.get(this.jenever.naam + ' gedronken') === null) {
       this.localStorage.set(this.jenever.naam + ' gedronken', true);
-      console.log('aangemaakt');
     } else {
       this.localStorage.set(this.jenever.naam + ' gedronken', !this.localStorage.get(this.jenever.naam + ' gedronken'));
-      console.log('verandert');
     }
   }
 
